@@ -1,11 +1,12 @@
 <script>
  // 这是 javascript 注解
  // 也可以缩写成 $(function() {
- $(document).ready(function(){
+ // $(document).ready(function(){
+ $(document).on("turbolinks:load", function(){
  console.log("checkpoint q");
   $("#my-click").click(function(){
     console.log("checkpoint C");
-    $("#foo").prepend('<h1>zoo</h1>');
+    $("#foo").html('<h1>zoo</h1>');
   })
  })
 </script>
