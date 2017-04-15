@@ -6,6 +6,8 @@ class Post < ApplicationRecord
 
   has_many :collects, :dependent => :destroy
   has_many :collected_users, :through => :collects, :source => :user
+  belongs_to :category, :optional => true
+
   def find_like(user)
       self.likes.where( :user_id => user.id ).first
     end

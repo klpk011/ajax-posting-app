@@ -69,10 +69,15 @@ end
     render :json => { :message => "ok", :flag_at => @post.flag_at, :id => @post.id }
   end
 
+    def update
+      @post = Post.find(params[:id])
+      @post.update!( post_params )
 
+      render :json => { :id => @post.id, :message => "ok"}
+    end
   private
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content,:category_id)
   end
 end
